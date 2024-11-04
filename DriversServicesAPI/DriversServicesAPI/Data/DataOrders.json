@@ -1,0 +1,27 @@
+{
+  "dataOrders": [
+    {
+      "Id": 1,
+      "Date": "2022-12-01",
+      "UserId": 1,
+      "Driver_id": 1,
+      "CarId": 1,
+      "PaymentType": "Credit Card",
+      "Price": 50,
+      "TravelId": 5,
+      "PaymentType": "1"
+    },
+    {
+      "Id": 2,
+      "Date": "2022-12-02",
+      "UserId": 2,
+      "Driver_id": 2,
+      "CarId": 2,
+      "PaymentType": "Cash",
+      "Price": 55,
+      "TravelId": 2,
+      "PaymentType": "1"
+    }
+  
+  ]
+}

@@ -1,0 +1,155 @@
+{
+  "dataTravels": [
+    {
+      "Id": 1,
+     
+      "Car_id": 1,
+      "Order_id": 1,
+      "Source": "City A",
+      "Destination": "City B",
+      "TravelType": "Delivery",
+      "RateType": "Fixed"
+    },
+    {
+      "Id": 2,
+    
+      "Car_id": 2,
+      "Order_id": 2,
+      "Source": "City C",
+      "Destination": "City D",
+      "TravelType": "Passenger",
+      "RateType": "Hourly"
+    },
+    {
+      "Id": 3,
+     
+      "Car_id": 3,
+      "Order_id": 3,
+      "Source": "City E",
+      "Destination": "City F",
+      "TravelType": "Ride-sharing",
+      "RateType": "Distance-based"
+    },
+    {
+      "Id": 4,
+     
+      "Car_id": 4,
+      "Order_id": 4,
+      "Source": "City G",
+      "Destination": "City H",
+      "TravelType": "Taxi",
+      "RateType": "Metered"
+    },
+    {
+      "Id": 5,
+      
+      "Car_id": 5,
+      "Order_id": 5,
+      "Source": "City I",
+      "Destination": "City J",
+      "TravelType": "Courier",
+      "RateType": "Weight-based"
+    },
+    {
+      "Id": 6,
+      
+      "Car_id": 6,
+      "Order_id": 6,
+      "Source": "City K",
+      "Destination": "City L",
+      "TravelType": "Shuttle",
+      "RateType": "Fixed"
+    },
+    {
+      "Id": 7,
+      
+      "Car_id": 7,
+      "Order_id": 7,
+      "Source": "City M",
+      "Destination": "City N",
+      "TravelType": "Limousine",
+      "RateType": "Hourly"
+    },
+    {
+      "Id": 8,
+     
+      "Car_id": 8,
+      "Order_id": 8,
+      "Source": "City O",
+      "Destination": "City P",
+      "TravelType": "Ride-hailing",
+      "RateType": "Distance-based"
+    },
+    {
+      "Id": 9,
+     
+      "Car_id": 9,
+      "Order_id": 9,
+      "Source": "City Q",
+      "Destination": "City R",
+      "TravelType": "Carpool",
+      "RateType": "Metered"
+    },
+    {
+      "Id": 10,
+      
+      "Customer_id": 10,
+      "Car_id": 10,
+      "Order_id": 10,
+      "Source": "City S",
+      "Destination": "City T",
+      "TravelType": "Tour",
+      "RateType": "Fixed"
+    },
+    {
+      "Id": 11,
+     
+      "Car_id": 11,
+      "Order_id": 11,
+      "Source": "City U",
+      "Destination": "City V",
+      "TravelType": "Airport transfer",
+      "RateType": "Hourly"
+    },
+    {
+      "Id": 12,
+      
+      "Car_id": 12,
+      "Order_id": 12,
+      "Source": "City W",
+      "Destination": "City X",
+      "TravelType": "Medical transport",
+      "RateType": "Distance-based"
+    },
+    {
+      "Id": 13,
+     
+      "Car_id": 13,
+      "Order_id": 13,
+      "Source": "City Y",
+      "Destination": "City Z",
+      "TravelType": "School run",
+      "RateType": "Metered"
+    },
+    {
+      "Id": 14,
+     
+      "Car_id": 14,
+      "Order_id": 14,
+      "Source": "City AA",
+      "Destination": "City BB",
+      "TravelType": "Event transportation",
+      "RateType": "Fixed"
+    },
+    {
+      "Id": 15,
+      
+      "Car_id": 15,
+      "Order_id": 15,
+      "Source": "City CC",
+      "Destination": "City DD",
+      "TravelType": "Ferry service",
+      "RateType": "Hourly"
+    }
+  ]
+}

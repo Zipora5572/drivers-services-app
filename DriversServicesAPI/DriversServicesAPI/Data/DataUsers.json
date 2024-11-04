@@ -1,0 +1,71 @@
+{
+  "dataUsers": [
+    {
+      "Id": 1,
+      "firstName": "Alice",
+      "lastName": "Johnson",
+      "gender": "Female",
+      "DateOfBirth": "1985-02-15",
+      "Address": "789 Oak Avenue",
+      "PhoneNumber": "555-4321",
+      "email": "alice.johnson@example.com",
+      "status": "Active"
+    },
+    {
+      "Id": 2,
+      "firstName": "Bob",
+      "lastName": "Smith",
+      "gender": "Male",
+      "DateOfBirth": "1990-05-20",
+      "Address": "456 Elm Street",
+      "PhoneNumber": "555-1234",
+      "email": "bob.smith@example.com",
+      "status": "Active"
+    },
+    {
+      "Id": 3,
+      "firstName": "Catherine",
+      "lastName": "Brown",
+      "gender": "Female",
+      "DateOfBirth": "1988-09-10",
+      "Address": "789 Maple Avenue",
+      "PhoneNumber": "555-5678",
+      "email": "catherine.brown@example.com",
+      "status": "Active"
+    },
+    {
+      "Id": 4,
+      "firstName": "David",
+      "lastName": "Wilson",
+      "gender": "Male",
+      "DateOfBirth": "1987-03-25",
+      "Address": "101 Pine Street",
+      "PhoneNumber": "555-2468",
+      "email": "david.wilson@example.com",
+      "status": "Active"
+    },
+    {
+      "Id": 5,
+      "firstName": "Emily",
+      "lastName": "Davis",
+      "gender": "Female",
+      "DateOfBirth": "1992-07-10",
+      "Address": "202 Maple Street",
+      "PhoneNumber": "555-9876",
+      "email": "emily.davis@example.com",
+      "status": "Active"
+    },
+    {
+      "Id": 6,
+      "firstName": "Frank",
+      "lastName": "Martinez",
+      "gender": "Male",
+      "DateOfBirth": "1995-01-28",
+      "Address": "303 Cedar Street",
+      "PhoneNumber": "555-3698",
+      "email": "frank.martinez@example.com",
+      "status": "Active"
+    }
+    
+  ]
+}

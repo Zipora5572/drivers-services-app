@@ -1,0 +1,84 @@
+{
+  
+
+  "dataCars": [
+    {
+      "ID": 1,
+      "Model": "Toyota",
+      "YearOfProduction": "2020",
+      "NumPlaces": 5,
+      "plateNumber": "ABC123",
+      "Manufacturer": "Toyota",
+      "Condition": "Good",
+      "Status": "Available",
+      "DriverID":"1"
+    },
+    {
+      "ID": 2,
+      "Model": "Car2",
+      "YearOfProduction": "2021",
+      "NumPlaces": 7,
+      "plateNumber": "XYZ2",
+      "Manufacturer": "Manufacturer2",
+      "Condition": "Good",
+      "Status": "Available",
+      "DriverID":"1"
+    },
+    {
+      "ID": 3,
+      "Model": "Car3",
+      "YearOfProduction": "2021",
+      "NumPlaces": 3,
+      "plateNumber": "XYZ3",
+      "Manufacturer": "Manufacturer3",
+      "Condition": "Good",
+      "Status": "Available",
+      "DriverID":"1"
+    },
+
+    {
+      "ID": 4,
+      "Model": "Car4",
+      "YearOfProduction": "2021",
+      "NumPlaces": 4,
+      "plateNumber": "XYZ4",
+      "Manufacturer": "Manufacturer4",
+      "Condition": "Good",
+      "Status": "Available",
+      "DriverID":"1"
+    },
+    {
+      "ID": 5,
+      "Model": "Toyota",
+      "YearOfProduction": "2020",
+      "NumPlaces": 5,
+      "plateNumber": "ABC123",
+      "Manufacturer": "Toyota",
+      "Condition": "Good",
+      "Status": "Available",
+      "DriverID":"1"
+    },
+    {
+      "ID": 6,
+      "Model": "Honda",
+      "YearOfProduction": "2019",
+      "NumPlaces": 4,
+      "plateNumber": "XYZ456",
+      "Manufacturer": "Honda",
+      "Condition": "Excellent",
+      "Status": "Available",
+      "DriverID":"1"
+    },
+    {
+      "ID": 7,
+      "Model": "Ford",
+      "YearOfProduction": "2018",
+      "NumPlaces": 7,
+      "plateNumber": "DEF789",
+      "Manufacturer": "Ford",
+      "Condition": "Fair",
+      "Status": "Rented",
+      "DriverID": "1"
+    }
+  ]
+}

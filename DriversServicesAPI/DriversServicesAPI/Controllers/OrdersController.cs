@@ -45,23 +45,29 @@ namespace OrdersServicesAPI.Controllers
 
         // POST api/<OrderController>
         [HttpPost]
-        public void Post([FromBody] OrderDTO order)
+        public ActionResult Post([FromBody] OrderDTO order)
         {
-            _OrderService.AddOrder(order);
+           if( _OrderService.AddOrder(order))
+                return NoContent();
+            return BadRequest();
         }
 
         // PUT api/<OrderController>/5
         [HttpPut("{id}")]
-        public void Put([FromBody] OrderDTO order)
+        public ActionResult Put([FromBody] OrderDTO order)
         {
-            _OrderService.UpdateOrder(order);
+            if(_OrderService.UpdateOrder(order))
+                return NoContent();
+            return NotFound();
         }
         // DELETE api/<OrderController>/5
         [HttpDelete("{id}")]
 
-        public void Delete(int id)
+        public ActionResult Delete(int id)
         {
-            _OrderService.DeleteOrder(id);
+           if( _OrderService.DeleteOrder(id))
+                return NoContent();
+            return NotFound();
         }
     }
 }

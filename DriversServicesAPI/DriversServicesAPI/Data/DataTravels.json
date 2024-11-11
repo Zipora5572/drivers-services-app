@@ -2,154 +2,163 @@
   "dataTravels": [
     {
       "Id": 1,
-     
-      "Car_id": 1,
-      "Order_id": 1,
-      "Source": "City A",
-      "Destination": "City B",
-      "TravelType": "Delivery",
-      "RateType": "Fixed"
+      "Source": "123 Main St",
+      "Destination": "456 Elm St",
+      "Date": "2022-09-15T10:30:00",
+      "Rate": "HOURLY",
+      "Travel": "DELIVERY"
     },
     {
       "Id": 2,
-    
-      "Car_id": 2,
-      "Order_id": 2,
-      "Source": "City C",
-      "Destination": "City D",
-      "TravelType": "Passenger",
-      "RateType": "Hourly"
+      "Source": "456 Elm St",
+      "Destination": "789 Oak St",
+      "Date": "2022-09-16T14:45:00",
+      "Rate": "METER",
+      "Travel": "PASSENGERS"
     },
     {
       "Id": 3,
-     
-      "Car_id": 3,
-      "Order_id": 3,
-      "Source": "City E",
-      "Destination": "City F",
-      "TravelType": "Ride-sharing",
-      "RateType": "Distance-based"
+      "Source": "789 Oak St",
+      "Destination": "321 Pine St",
+      "Date": "2022-09-17T08:00:00",
+      "Rate": "NIGHT",
+      "Travel": "DELIVERY"
     },
     {
       "Id": 4,
-     
-      "Car_id": 4,
-      "Order_id": 4,
-      "Source": "City G",
-      "Destination": "City H",
-      "TravelType": "Taxi",
-      "RateType": "Metered"
+      "Source": "321 Pine St",
+      "Destination": "654 Cedar St",
+      "Date": "2022-09-18T16:20:00",
+      "Rate": "HOURLY",
+      "Travel": "PASSENGERS"
     },
     {
       "Id": 5,
-      
-      "Car_id": 5,
-      "Order_id": 5,
-      "Source": "City I",
-      "Destination": "City J",
-      "TravelType": "Courier",
-      "RateType": "Weight-based"
+      "Source": "654 Cedar St",
+      "Destination": "987 Birch St",
+      "Date": "2022-09-19T11:10:00",
+      "Rate": "METER",
+      "Travel": "DELIVERY"
     },
     {
       "Id": 6,
-      
-      "Car_id": 6,
-      "Order_id": 6,
-      "Source": "City K",
-      "Destination": "City L",
-      "TravelType": "Shuttle",
-      "RateType": "Fixed"
+      "Source": "987 Birch St",
+      "Destination": "159 Maple St",
+      "Date": "2022-09-20T09:30:00",
+      "Rate": "NIGHT",
+      "Travel": "PASSENGERS"
     },
     {
       "Id": 7,
-      
-      "Car_id": 7,
-      "Order_id": 7,
-      "Source": "City M",
-      "Destination": "City N",
-      "TravelType": "Limousine",
-      "RateType": "Hourly"
+      "Source": "159 Maple St",
+      "Destination": "753 Walnut St",
+      "Date": "2022-09-21T13:45:00",
+      "Rate": "HOURLY",
+      "Travel": "DELIVERY"
     },
     {
       "Id": 8,
-     
-      "Car_id": 8,
-      "Order_id": 8,
-      "Source": "City O",
-      "Destination": "City P",
-      "TravelType": "Ride-hailing",
-      "RateType": "Distance-based"
+      "Source": "753 Walnut St",
+      "Destination": "852 Ash St",
+      "Date": "2022-09-22T17:00:00",
+      "Rate": "METER",
+      "Travel": "PASSENGERS"
     },
     {
       "Id": 9,
-     
-      "Car_id": 9,
-      "Order_id": 9,
-      "Source": "City Q",
-      "Destination": "City R",
-      "TravelType": "Carpool",
-      "RateType": "Metered"
+      "Source": "852 Ash St",
+      "Destination": "456 Pine St",
+      "Date": "2022-09-23T10:15:00",
+      "Rate": "NIGHT",
+      "Travel": "DELIVERY"
     },
     {
       "Id": 10,
-      
-      "Customer_id": 10,
-      "Car_id": 10,
-      "Order_id": 10,
-      "Source": "City S",
-      "Destination": "City T",
-      "TravelType": "Tour",
-      "RateType": "Fixed"
+      "Source": "456 Pine St",
+      "Destination": "753 Cedar St",
+      "Date": "2022-09-24T14:00:00",
+      "Rate": "HOURLY",
+      "Travel": "PASSENGERS"
     },
     {
       "Id": 11,
-     
-      "Car_id": 11,
-      "Order_id": 11,
-      "Source": "City U",
-      "Destination": "City V",
-      "TravelType": "Airport transfer",
-      "RateType": "Hourly"
+      "Source": "753 Cedar St",
+      "Destination": "258 Elm St",
+      "Date": "2022-09-25T18:30:00",
+      "Rate": "METER",
+      "Travel": "DELIVERY"
     },
     {
       "Id": 12,
-      
-      "Car_id": 12,
-      "Order_id": 12,
-      "Source": "City W",
-      "Destination": "City X",
-      "TravelType": "Medical transport",
-      "RateType": "Distance-based"
+      "Source": "258 Elm St",
+      "Destination": "357 Oak St",
+      "Date": "2022-09-26T11:45:00",
+      "Rate": "NIGHT",
+      "Travel": "PASSENGERS"
     },
     {
       "Id": 13,
-     
-      "Car_id": 13,
-      "Order_id": 13,
-      "Source": "City Y",
-      "Destination": "City Z",
-      "TravelType": "School run",
-      "RateType": "Metered"
+      "Source": "357 Oak St",
+      "Destination": "951 Birch St",
+      "Date": "2022-09-27T15:20:00",
+      "Rate": "HOURLY",
+      "Travel": "DELIVERY"
     },
     {
       "Id": 14,
-     
-      "Car_id": 14,
-      "Order_id": 14,
-      "Source": "City AA",
-      "Destination": "City BB",
-      "TravelType": "Event transportation",
-      "RateType": "Fixed"
+      "Source": "951 Birch St",
+      "Destination": "753 Walnut St",
+      "Date": "2022-09-28T09:00:00",
+      "Rate": "METER",
+      "Travel": "PASSENGERS"
     },
     {
       "Id": 15,
-      
-      "Car_id": 15,
-      "Order_id": 15,
-      "Source": "City CC",
-      "Destination": "City DD",
-      "TravelType": "Ferry service",
-      "RateType": "Hourly"
+      "Source": "753 Walnut St",
+      "Destination": "357 Cedar St",
+      "Date": "2022-09-29T12:40:00",
+      "Rate": "NIGHT",
+      "Travel": "DELIVERY"
+    },
+    {
+      "Id": 16,
+      "Source": "357 Cedar St",
+      "Destination": "852 Pine St",
+      "Date": "2022-09-30T16:55:00",
+      "Rate": "HOURLY",
+      "Travel": "PASSENGERS"
+    },
+    {
+      "Id": 17,
+      "Source": "852 Pine St",
+      "Destination": "456 Elm St",
+      "Date": "2022-10-01T08:10:00",
+      "Rate": "METER",
+      "Travel": "DELIVERY"
+    },
+    {
+      "Id": 18,
+      "Source": "456 Elm St",
+      "Destination": "123 Oak St",
+      "Date": "2022-10-02T14:25:00",
+      "Rate": "NIGHT",
+      "Travel": "PASSENGERS"
+    },
+    {
+      "Id": 19,
+      "Source": "123 Oak St",
+      "Destination": "159 Maple St",
+      "Date": "2022-10-03T10:05:00",
+      "Rate": "HOURLY",
+      "Travel": "DELIVERY"
+    },
+    {
+      "Id": 20,
+      "Source": "159 Maple St",
+      "Destination": "456 Elm St",
+      "Date": "2022-10-04T18:15:00",
+      "Rate": "METER",
+      "Travel": "PASSENGERS"
     }
   ]
 }

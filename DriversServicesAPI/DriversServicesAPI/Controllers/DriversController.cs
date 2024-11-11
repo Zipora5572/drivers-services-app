@@ -35,7 +35,7 @@ namespace DriversServicesAPI.Controllers
 
         // GET api/<DriverController>/5
         [HttpGet("{id}")]
-        public ActionResult<DriverDTO> Get(int id)
+        public ActionResult<DriverDTO> Get(string id)
         {
             DriverDTO result = _driverService.GetById(id);
             if (result == null)
@@ -48,24 +48,30 @@ namespace DriversServicesAPI.Controllers
 
         // POST api/<DriverController>
         [HttpPost]
-        public void Post([FromBody] DriverDTO driver)
+        public ActionResult Post([FromBody] DriverDTO driver)
         {
-            _driverService.AddDriver(driver);
+            if(_driverService.AddDriver(driver))
+                return NoContent();
+            return BadRequest();
         }
 
         // PUT api/<DriverController>/5
         [HttpPut("{id}")]
-        public void Put([FromBody] DriverDTO car)
+        public ActionResult Put([FromBody] DriverDTO car)
         {
-            _driverService.UpdateDriver(car);
+            if(_driverService.UpdateDriver(car))
+                return NoContent();
+            return NotFound();
         }
 
         // DELETE api/<DriverController>/5
         [HttpDelete("{id}")]
 
-        public void Delete(int id)
+        public ActionResult Delete(string id)
         {
-            _driverService.DeleteDriver(id);
+            if(_driverService.DeleteDriver(id))
+                return NoContent();
+            return NotFound();
         }
     }
 

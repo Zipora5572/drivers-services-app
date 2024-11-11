@@ -5,15 +5,8 @@ namespace DriversServicesAPI.Services
 {
     public class OrderService
     {
-
-        DataOrders _allOrders;
-
-        public OrderService()
-        {
-            string path = Path.Combine(AppContext.BaseDirectory, "Data", "dataOrders.json");
-            string jsonString = File.ReadAllText(path);
-            _allOrders = JsonSerializer.Deserialize<DataOrders>(jsonString);
-        }
+        DataOrders _allOrders = DataManager.Data.Orders;
+        private static int Id = 0;
         public List<OrderDTO> GetAllOrders()
         {
             if (_allOrders == null)
@@ -37,6 +30,7 @@ namespace DriversServicesAPI.Services
         {
             if (_allOrders == null)
             { return false; }
+            order.Id= Id++;
             _allOrders.dataOrders.Add(order);
             string path = Path.Combine(AppContext.BaseDirectory, "Data", "dataOrders.json");
             var data = JsonSerializer.Serialize(_allOrders);
@@ -74,7 +68,7 @@ namespace DriversServicesAPI.Services
                 orderToUpdate.DriverId = order.DriverId;
                 orderToUpdate.TravelId = order.TravelId;
                 orderToUpdate.Price = order.Price;
-                orderToUpdate.PaymentType = order.PaymentType;
+                orderToUpdate.Payment = order.Payment;
                 string path = Path.Combine(AppContext.BaseDirectory, "Data", "dataOrders.json");
                 var data = JsonSerializer.Serialize(_allOrders);
                 File.WriteAllText(path, data);

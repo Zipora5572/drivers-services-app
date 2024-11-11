@@ -6,14 +6,8 @@ namespace DriversServicesAPI.Services
     public class DriverService
     {
 
-        DataDrivers _allDrivers;
+        DataDrivers _allDrivers = DataManager.Data.Drivers;
 
-        public DriverService()
-        {
-            string path = Path.Combine(AppContext.BaseDirectory, "Data", "DataDrivers.json");
-            string jsonString = File.ReadAllText(path);
-            _allDrivers = JsonSerializer.Deserialize<DataDrivers>(jsonString);
-        }
         public List<DriverDTO> GetAllDrivers()
         {
             if (_allDrivers == null)
@@ -24,7 +18,7 @@ namespace DriversServicesAPI.Services
             return _allDrivers.dataDrivers;
         }
 
-        public DriverDTO GetById(int id)
+        public DriverDTO GetById(string id)
         {
             if (_allDrivers?.dataDrivers == null)
             {
@@ -44,7 +38,7 @@ namespace DriversServicesAPI.Services
             return true;
         }
 
-        public bool DeleteDriver(int id)
+        public bool DeleteDriver(string id)
         {
             if (_allDrivers?.dataDrivers == null)
             {

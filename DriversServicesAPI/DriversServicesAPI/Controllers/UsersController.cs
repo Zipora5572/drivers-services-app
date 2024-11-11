@@ -32,7 +32,7 @@ namespace UsersServicesAPI.Controllers
 
         // GET api/<UserController>/5
         [HttpGet("{id}")]
-        public ActionResult<UserDTO> Get(int id)
+        public ActionResult<UserDTO> Get(string id)
         {
             UserDTO result = _UserService.GetById(id);
             if (result == null)
@@ -45,22 +45,28 @@ namespace UsersServicesAPI.Controllers
 
         // POST api/<UserController>
         [HttpPost]
-        public void Post([FromBody] UserDTO user)
+        public ActionResult Post([FromBody] UserDTO user)
         {
-            _UserService.AddUser(user);
+            if(_UserService.AddUser(user))
+                return NoContent();
+            return BadRequest();
         }
 
         // PUT api/<UserController>/5
         [HttpPut("{id}")]
-        public void Put([FromBody] UserDTO user)
+        public ActionResult Put([FromBody] UserDTO user)
         {
-            _UserService.UpdateUser(user);
+            if(_UserService.UpdateUser(user))
+                return NoContent();
+            return NotFound();
         }
         // DELETE api/<UserController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public ActionResult Delete(string id)
         {
-            _UserService.DeleteUser(id);
+            if(_UserService.DeleteUser(id))
+                return NoContent();
+            return NotFound();
         }
     }
 }

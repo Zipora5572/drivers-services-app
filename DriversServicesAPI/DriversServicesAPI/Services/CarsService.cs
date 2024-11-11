@@ -1,15 +1,14 @@
 ﻿using DriversServicesAPI.DTO;
+
 using System.Text.Json;
 
 namespace DriversServicesAPI.Services
 {
     public class CarService
     {
+        private static int Id=0;
 
-        //static DataContext manager = new DataContext();
-        //DataCars _allCars = manager.Cars;
-        static DataManager dataManager=new DataManager();
-        DataCars _allCars = dataManager.Data;
+        DataCars _allCars = DataManager.Data.Cars;
         public List<CarDTO> GetAllCars()
         {
             if (_allCars == null)
@@ -31,9 +30,9 @@ namespace DriversServicesAPI.Services
 
         public bool AddCar(CarDTO car)
         {
-            if (_allCars == null)
+            if (_allCars == null || car.NumPlaces<0)
             { return false; }
-            
+            car.Id = Id++;
             _allCars.dataCars.Add(car);
             string path = Path.Combine(AppContext.BaseDirectory, "Data", "DataCars.json");
             var data = JsonSerializer.Serialize(_allCars);
@@ -77,7 +76,7 @@ namespace DriversServicesAPI.Services
                 File.WriteAllText(path, data);
                 return true;
             }
-         
+
             return false;
         }
 

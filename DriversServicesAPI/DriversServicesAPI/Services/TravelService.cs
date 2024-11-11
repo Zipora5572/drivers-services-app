@@ -6,14 +6,8 @@ namespace DriversServicesAPI.Services
     public class TravelService
     {
 
-        DataTravels _allTravels;
-
-        public TravelService()
-        {
-            string path = Path.Combine(AppContext.BaseDirectory, "Data", "DataTravels.json");
-            string jsonString = File.ReadAllText(path);
-            _allTravels = JsonSerializer.Deserialize<DataTravels>(jsonString);
-        }
+        DataTravels _allTravels = DataManager.Data.Travels;
+        private static int Id = 0;
         public List<TravelDTO> GetAllTravels()
         {
             if (_allTravels == null)
@@ -33,11 +27,12 @@ namespace DriversServicesAPI.Services
             return _allTravels.dataTravels.Find(c => c.Id == id);
         }
 
-        public bool AddTravel(TravelDTO car)
+        public bool AddTravel(TravelDTO travel)
         {
             if (_allTravels == null)
             { return false; }
-            _allTravels.dataTravels.Add(car);
+            travel.Id = Id++;
+            _allTravels.dataTravels.Add(travel);
             string path = Path.Combine(AppContext.BaseDirectory, "Data", "dataTravels.json");
             var data = JsonSerializer.Serialize(_allTravels);
             File.WriteAllText(path, data);
@@ -72,8 +67,8 @@ namespace DriversServicesAPI.Services
                 TravelToUpdate.Source = car.Source;
                 TravelToUpdate.Destination = car.Destination;
                 TravelToUpdate.Date = car.Date;
-                TravelToUpdate.RateType = car.RateType;
-                TravelToUpdate.TravelType = car.TravelType;
+                TravelToUpdate.Rate = car.Rate;
+                TravelToUpdate.Travel = car.Travel;
                 string path = Path.Combine(AppContext.BaseDirectory, "Data", "dataTravels.json");
                 var data = JsonSerializer.Serialize(_allTravels);
                 File.WriteAllText(path, data);

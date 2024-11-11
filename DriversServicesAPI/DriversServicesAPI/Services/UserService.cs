@@ -6,14 +6,8 @@ namespace DriversServicesAPI.Services
     public class UserService
     {
 
-        DataUsers _allUsers;
+        DataUsers _allUsers = DataManager.Data.Users;
 
-        public UserService()
-        {
-            string path = Path.Combine(AppContext.BaseDirectory, "Data", "DataUsers.json");
-            string jsonString = File.ReadAllText(path);
-            _allUsers = JsonSerializer.Deserialize<DataUsers>(jsonString);
-        }
         public List<UserDTO> GetAllUsers()
         {
             if (_allUsers == null)
@@ -24,7 +18,7 @@ namespace DriversServicesAPI.Services
             return _allUsers.dataUsers;
         }
 
-        public UserDTO GetById(int id)
+        public UserDTO GetById(string id)
         {
             if (_allUsers?.dataUsers == null)
             {
@@ -44,7 +38,7 @@ namespace DriversServicesAPI.Services
             return true;
         }
 
-        public bool DeleteUser(int id)
+        public bool DeleteUser(string id)
         {
             if (_allUsers?.dataUsers == null)
             {

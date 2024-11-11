@@ -18,14 +18,14 @@ namespace DriversServicesAPI.Controllers
         }
         // GET: api/<CarsController>
         [HttpGet]
-        public ActionResult< IEnumerable<CarDTO> >Get()
+        public ActionResult<IEnumerable<CarDTO> >Get()
         {
             List<CarDTO> cars = _carService.GetAllCars();
             if (cars == null)
             {
                 return NotFound();
             }
-            return Ok(cars);
+            return cars;
         }
 
         // GET api/<CarsController>/5
@@ -37,28 +37,40 @@ namespace DriversServicesAPI.Controllers
             {
                 return NotFound();
             }
-            return Ok(result);
+            return result;
         }
 
         // POST api/<CarsController>
         [HttpPost]
-        public void Post([FromBody] CarDTO car)
+        public ActionResult Post([FromBody] CarDTO car)
         {
-            _carService.AddCar(car);
+           
+           if( _carService.AddCar(car))
+                return Ok();
+           return BadRequest();
         }
 
         // PUT api/<CarsController>/5
         [HttpPut]
-        public void Put( [FromBody] CarDTO car)
+        public ActionResult Put([FromBody] CarDTO car)
         {
-            _carService.UpdateCar(car);
+
+            //validation
+            if(car.NumPlaces<=0)
+                return BadRequest("Invalid num of places");
+
+           if( _carService.UpdateCar(car))
+                return Ok();
+           return NotFound();
         }
 
         // DELETE api/<CarsController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public ActionResult Delete(int id)
         {
-            _carService.DeleteCar(id);
+           if( _carService.DeleteCar(id))
+                return Ok();
+           return NotFound();
         }
     }
 }

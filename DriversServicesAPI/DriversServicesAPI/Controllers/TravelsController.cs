@@ -46,23 +46,29 @@ namespace TravelsServicesAPI.Controllers
 
         // POST api/<TravelController>
         [HttpPost]
-        public void Post([FromBody] TravelDTO travel)
+        public ActionResult Post([FromBody] TravelDTO travel)
         {
-            _TravelService.AddTravel(travel);
+            if (_TravelService.AddTravel(travel))
+                return NoContent();
+            return BadRequest();
         }
 
         // PUT api/<TravelController>/5
         [HttpPut("{id}")]
-        public void Put([FromBody] TravelDTO travel)
+        public ActionResult Put([FromBody] TravelDTO travel)
         {
-            _TravelService.UpdateTravel(travel);
+            if(_TravelService.UpdateTravel(travel))
+                return NoContent();
+            return NotFound();
         }
         // DELETE api/<TravelController>/5
         [HttpDelete("{id}")]
 
-        public void Delete(int id)
+        public ActionResult Delete(int id)
         {
-            _TravelService.DeleteTravel(id);
+            if(_TravelService.DeleteTravel(id))
+                return NoContent();
+            return NotFound();
         }
     }
 

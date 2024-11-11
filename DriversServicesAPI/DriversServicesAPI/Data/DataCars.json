@@ -1,84 +1,224 @@
 {
-  
-
   "dataCars": [
     {
-      "ID": 1,
-      "Model": "Toyota",
-      "YearOfProduction": "2020",
+      "id": 1,
+      "Model": "Camry",
+      "YearOfProduction": "2020-01-01",
       "NumPlaces": 5,
-      "plateNumber": "ABC123",
+      "PlateNumber": "ABC123",
       "Manufacturer": "Toyota",
-      "Condition": "Good",
-      "Status": "Available",
-      "DriverID":"1"
+      "Condition": "AVAILABLE",
+      "Status": true,
+      "DriverId":" 1"
     },
     {
-      "ID": 2,
-      "Model": "Car2",
-      "YearOfProduction": "2021",
-      "NumPlaces": 7,
-      "plateNumber": "XYZ2",
-      "Manufacturer": "Manufacturer2",
-      "Condition": "Good",
-      "Status": "Available",
-      "DriverID":"1"
-    },
-    {
-      "ID": 3,
-      "Model": "Car3",
-      "YearOfProduction": "2021",
-      "NumPlaces": 3,
-      "plateNumber": "XYZ3",
-      "Manufacturer": "Manufacturer3",
-      "Condition": "Good",
-      "Status": "Available",
-      "DriverID":"1"
-    },
-
-    {
-      "ID": 4,
-      "Model": "Car4",
-      "YearOfProduction": "2021",
+      "id": 2,
+      "Model": "Accord",
+      "YearOfProduction": "2019-06-15",
       "NumPlaces": 4,
-      "plateNumber": "XYZ4",
-      "Manufacturer": "Manufacturer4",
-      "Condition": "Good",
-      "Status": "Available",
-      "DriverID":"1"
-    },
-    {
-      "ID": 5,
-      "Model": "Toyota",
-      "YearOfProduction": "2020",
-      "NumPlaces": 5,
-      "plateNumber": "ABC123",
-      "Manufacturer": "Toyota",
-      "Condition": "Good",
-      "Status": "Available",
-      "DriverID":"1"
-    },
-    {
-      "ID": 6,
-      "Model": "Honda",
-      "YearOfProduction": "2019",
-      "NumPlaces": 4,
-      "plateNumber": "XYZ456",
+      "PlateNumber": "XYZ789",
       "Manufacturer": "Honda",
-      "Condition": "Excellent",
-      "Status": "Available",
-      "DriverID":"1"
+      "Condition": "UNDER_REPAIR",
+      "Status": false,
+      "DriverId":" 2"
     },
     {
-      "ID": 7,
-      "Model": "Ford",
-      "YearOfProduction": "2018",
-      "NumPlaces": 7,
-      "plateNumber": "DEF789",
+      "id": 3,
+      "Model": "Corolla",
+      "YearOfProduction": "2018-11-20",
+      "NumPlaces": 4,
+      "PlateNumber": "DEF456",
+      "Manufacturer": "Toyota",
+      "Condition": "AVAILABLE",
+      "Status": true,
+      "DriverId":" 3"
+    },
+    {
+      "id": 4,
+      "Model": "Civic",
+      "YearOfProduction": "2019-03-10",
+      "NumPlaces": 4,
+      "PlateNumber": "GHI789",
+      "Manufacturer": "Honda",
+      "Condition": "AVAILABLE",
+      "Status": true,
+      "DriverId":" 4"
+    },
+    {
+      "id": 5,
+      "Model": "Fusion",
+      "YearOfProduction": "2017-08-25",
+      "NumPlaces": 5,
+      "PlateNumber": "JKL012",
       "Manufacturer": "Ford",
-      "Condition": "Fair",
-      "Status": "Rented",
-      "DriverID": "1"
+      "Condition": "AVAILABLE",
+      "Status": true,
+      "DriverId":" 5"
+    },
+    {
+      "id": 6,
+      "Model": "Altima",
+      "YearOfProduction": "2019-04-30",
+      "NumPlaces": 5,
+      "PlateNumber": "MNO345",
+      "Manufacturer": "Nissan",
+      "Condition": "AVAILABLE",
+      "Status": true,
+      "DriverId":" 6"
+    },
+    {
+      "id": 7,
+      "Model": "Sentra",
+      "YearOfProduction": "2018-07-12",
+      "NumPlaces": 5,
+      "PlateNumber": "PQR678",
+      "Manufacturer": "Nissan",
+      "Condition": "AVAILABLE",
+      "Status": true,
+      "DriverId":" 7"
+    },
+    {
+      "id": 8,
+      "Model": "Malibu",
+      "YearOfProduction": "2019-02-18",
+      "NumPlaces": 5,
+      "PlateNumber": "STU901",
+      "Manufacturer": "Chevrolet",
+      "Condition": "AVAILABLE",
+      "Status": true,
+      "DriverId":" 8"
+    },
+    {
+      "id": 9,
+      "Model": "Optima",
+      "YearOfProduction": "2018-10-05",
+      "NumPlaces": 5,
+      "PlateNumber": "VWX234",
+      "Manufacturer": "Kia",
+      "Condition": "AVAILABLE",
+      "Status": true,
+      "DriverId":" 9"
+    },
+    {
+      "id": 10,
+      "Model": "Sonata",
+      "YearOfProduction": "2017-05-29",
+      "NumPlaces": 5,
+      "PlateNumber": "YZA567",
+      "Manufacturer": "Hyundai",
+      "Condition": "AVAILABLE",
+      "Status": true,
+      "DriverId":" 10"
+    },
+    {
+      "id": 11,
+      "Model": "Impala",
+      "YearOfProduction": "2018-12-08",
+      "NumPlaces": 5,
+      "PlateNumber": "BCD890",
+      "Manufacturer": "Chevrolet",
+      "Condition": "AVAILABLE",
+      "Status": true,
+      "DriverId":" 11"
+    },
+    {
+      "id": 12,
+      "Model": "Charger",
+      "YearOfProduction": "2017-06-20",
+      "NumPlaces": 5,
+      "PlateNumber": "EFG123",
+      "Manufacturer": "Dodge",
+      "Condition": "AVAILABLE",
+      "Status": true,
+      "DriverId":" 12"
+    },
+    {
+      "id": 13,
+      "Model": "F-150",
+      "YearOfProduction": "2019-08-14",
+      "NumPlaces": 2,
+      "PlateNumber": "HIJ456",
+      "Manufacturer": "Ford",
+      "Condition": "AVAILABLE",
+      "Status": true,
+      "DriverId":" 13
+    },
+    {
+      "id": 14,
+      "Model": "Wrangler",
+      "YearOfProduction": "2018-04-05",
+      "NumPlaces": 4,
+      "PlateNumber": "KLM789",
+      "Manufacturer": "Jeep",
+      "Condition": "AVAILABLE",
+      "Status": true,
+      "DriverId":" 14"
+    },
+    {
+      "id": 15,
+      "Model": "Explorer",
+      "YearOfProduction": "2017-09-17",
+      "NumPlaces": 6,
+      "PlateNumber": "NOP012",
+      "Manufacturer": "Ford",
+      "Condition": "AVAILABLE",
+      "Status": true,
+      "DriverId":" 15"
+    },
+    {
+      "id": 16,
+      "Model": "Escape",
+      "YearOfProduction": "2019-01-23",
+      "NumPlaces": 5,
+      "PlateNumber": "PQR345",
+      "Manufacturer": "Ford",
+      "Condition": "AVAILABLE",
+      "Status": true,
+      "DriverId":" 16"
+    },
+    {
+      "id": 17,
+      "Model": "Tacoma",
+      "YearOfProduction": "2018-03-30",
+      "NumPlaces": 4,
+      "PlateNumber": "STU678",
+      "Manufacturer": "Toyota",
+      "Condition": "AVAILABLE",
+      "Status": true,
+      "DriverId":" 17"
+    },
+    {
+      "id": 18,
+      "Model": "Rogue",
+      "YearOfProduction": "2019-07-07",
+      "NumPlaces": 5,
+      "PlateNumber": "VWX901",
+      "Manufacturer": "Nissan",
+      "Condition": "AVAILABLE",
+      "Status": true,
+      "DriverId":" 18"
+    },
+    {
+      "id": 19,
+      "Model": "Cruze",
+      "YearOfProduction": "2018-02-14",
+      "NumPlaces": 5,
+      "PlateNumber": "YZA234",
+      "Manufacturer": "Chevrolet",
+      "Condition": "AVAILABLE",
+      "Status": true,
+      "DriverId":" 19"
+    },
+    {
+      "id": 20,
+      "Model": "Mustang",
+      "YearOfProduction": "2017-10-28",
+      "NumPlaces": 4,
+      "PlateNumber": "BCD567",
+      "Manufacturer": "Ford",
+      "Condition": "AVAILABLE",
+      "Status": true,
+      "DriverId":" 20"
     }
   ]
 }

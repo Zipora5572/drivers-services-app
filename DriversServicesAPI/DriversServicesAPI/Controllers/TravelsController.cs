@@ -13,9 +13,9 @@ namespace TravelsServicesAPI.Controllers
     {
 
         readonly TravelService _TravelService;
-        public TravelsController()
+        public TravelsController(TravelService travelService)
         {
-            _TravelService = new TravelService();
+            _TravelService = travelService;
         }
 
         [HttpGet]

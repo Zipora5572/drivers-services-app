@@ -6,61 +6,73 @@ namespace DriversServicesAPI.Services
     public class DriverService
     {
 
-        DataDrivers _allDrivers = DataManager.Data.Drivers;
+        readonly IDataContext _dataContext;
 
+        public DriverService(IDataContext dataContext)
+        {
+            _dataContext = dataContext;
+        }
         public List<DriverDTO> GetAllDrivers()
         {
-            if (_allDrivers == null)
+            var data = _dataContext.LoadData<DriverDTO>();
+
+            if (data == null)
             {
                 return new List<DriverDTO>();
             }
 
-            return _allDrivers.dataDrivers;
+            return data;
         }
 
         public DriverDTO GetById(string id)
         {
-            if (_allDrivers?.dataDrivers == null)
+            var data = _dataContext.LoadData<DriverDTO>();
+
+            if (data == null)
             {
                 return null;
             }
-            return _allDrivers.dataDrivers.Find(c => c.Id == id);
+            return data.Find(c => c.Id == id);
         }
 
         public bool AddDriver(DriverDTO driver)
         {
-            if (_allDrivers == null)
+
+            var data = _dataContext.LoadData<DriverDTO>();
+
+            if (data == null)
             { return false; }
-            _allDrivers.dataDrivers.Add(driver);
-            string path = Path.Combine(AppContext.BaseDirectory, "Data", "dataDrivers.json");
-            var data = JsonSerializer.Serialize(_allDrivers);
-            File.WriteAllText(path, data);
+            data.Add(driver);
+            _dataContext.SaveData(data);
             return true;
         }
 
         public bool DeleteDriver(string id)
         {
-            if (_allDrivers?.dataDrivers == null)
+            var data = _dataContext.LoadData<DriverDTO>();
+
+            if (data == null)
             {
                 return false;
             }
-            DriverDTO driverToRemove = _allDrivers.dataDrivers.Find(c => c.Id == id);
+            DriverDTO driverToRemove = data.Find(c => c.Id == id);
             if (driverToRemove != null)
             {
-                _allDrivers.dataDrivers.Remove(driverToRemove);
-                string path = Path.Combine(AppContext.BaseDirectory, "Data", "DataDrivers.json");
-                var data = JsonSerializer.Serialize(_allDrivers);
-                File.WriteAllText(path, data);
+                data.Remove(driverToRemove);
+                _dataContext.SaveData(data);
                 return true;
             }
             return false;
         }
         public bool UpdateDriver(DriverDTO driver)
         {
-            if (_allDrivers == null)
+
+            var data = _dataContext.LoadData<DriverDTO>();
+
+            if (data == null)
             { return false; }
 
-            DriverDTO driverToUpdate = _allDrivers.dataDrivers.Find(c => c.Id == driver.Id);
+            DriverDTO driverToUpdate = data.Find(c => c.Id == driver.Id);
             if (driverToUpdate != null)
             {
 
@@ -73,9 +85,7 @@ namespace DriversServicesAPI.Services
                 driverToUpdate.LicenseTax = driver.LicenseTax;
                 driverToUpdate.PhoneNumber = driver.PhoneNumber;
                 driverToUpdate.Status = driver.Status;
-                string path = Path.Combine(AppContext.BaseDirectory, "Data", "dataDrivers.json");
-                var data = JsonSerializer.Serialize(_allDrivers);
-                File.WriteAllText(path, data);
+                _dataContext.SaveData(data);
                 return true;
             }
 

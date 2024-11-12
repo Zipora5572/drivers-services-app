@@ -1,5 +1,4 @@
-{
-  "dataUsers": [
+ [
     {
       "Id": "1",
       "FirstName": "John",
@@ -10,7 +9,8 @@
       "PhoneNumber": "555-1234",
       "City": "New York",
       "Status": true,
-      "Email": "john.doe@example.com"
+      "Email": "john.doe@example.com",
+      "LicenseTax":"2366"
     },
     {
       "Id": "2",
@@ -22,7 +22,8 @@
       "PhoneNumber": "555-5678",
       "City": "Los Angeles",
       "Status": true,
-      "Email": "jane.smith@example.com"
+      "Email": "jane.smith@example.com",
+      "LicenseTax":"2366"
     },
     {
       "Id": "3",
@@ -34,7 +35,8 @@
       "PhoneNumber": "555-9012",
       "City": "Chicago",
       "Status": true,
-      "Email": "michael.johnson@example.com"
+      "Email": "michael.johnson@example.com",
+      "LicenseTax":"2366"
     },
     {
       "Id": "4",
@@ -46,7 +48,8 @@
       "PhoneNumber": "555-3456",
       "City": "Houston",
       "Status": true,
-      "Email": "emily.brown@example.com"
+      "Email": "emily.brown@example.com",
+      "LicenseTax":"2366"
     },
     {
       "Id": "5",
@@ -58,7 +61,8 @@
       "PhoneNumber": "555-7890",
       "City": "Miami",
       "Status": true,
-      "Email": "david.martinez@example.com"
+      "Email": "david.martinez@example.com",
+      "LicenseTax":"2366"
     },
     {
       "Id": "6",
@@ -70,7 +74,8 @@
       "PhoneNumber": "555-2345",
       "City": "Seattle",
       "Status": true,
-      "Email": "sarah.garcia@example.com"
+      "Email": "sarah.garcia@example.com",
+      "LicenseTax":"2366"
     },
     {
       "Id": "7",
@@ -82,7 +87,8 @@
       "PhoneNumber": "555-6789",
       "City": "Dallas",
       "Status": true,
-      "Email": "daniel.lopez@example.com"
+      "Email": "daniel.lopez@example.com",
+      "LicenseTax":"2366"
     },
     {
       "Id": "8",
@@ -94,7 +100,8 @@
       "PhoneNumber": "555-1234",
       "City": "Boston",
       "Status": true,
-      "Email": "jessica.rodriguez@example.com"
+      "Email": "jessica.rodriguez@example.com",
+      "LicenseTax":"2366"
     },
     {
       "Id": "9",
@@ -106,7 +113,8 @@
       "PhoneNumber": "555-5678",
       "City": "San Francisco",
       "Status": true,
-      "Email": "christopher.perez@example.com"
+      "Email": "christopher.perez@example.com",
+      "LicenseTax":"2366"
     },
     {
       "Id": "10",
@@ -118,7 +126,8 @@
       "PhoneNumber": "555-9012",
       "City": "Atlanta",
       "Status": true,
-      "Email": "amanda.torres@example.com"
+      "Email": "amanda.torres@example.com",
+      "LicenseTax":"2366"
     },
     {
       "Id": "11",
@@ -130,7 +139,8 @@
       "PhoneNumber": "555-3456",
       "City": "Denver",
       "Status": true,
-      "Email": "matthew.gonzalez@example.com"
+      "Email": "matthew.gonzalez@example.com",
+      "LicenseTax":"2366"
     },
     {
       "Id": "12",
@@ -142,7 +152,8 @@
       "PhoneNumber": "555-7890",
       "City": "Phoenix",
       "Status": true,
-      "Email": "ashley.rivera@example.com"
+      "Email": "ashley.rivera@example.com",
+      "LicenseTax":"2366"
     },
     {
       "Id": "13",
@@ -154,7 +165,8 @@
       "PhoneNumber": "555-2345",
       "City": "Las Vegas",
       "Status": true,
-      "Email": "kevin.ramirez@example.com"
+      "Email": "kevin.ramirez@example.com",
+      "LicenseTax":"2366"
     },
     {
       "Id": "14",
@@ -166,7 +178,8 @@
       "PhoneNumber": "555-6789",
       "City": "Detroit",
       "Status": true,
-      "Email": "lauren.reyes@example.com"
+      "Email": "lauren.reyes@example.com",
+      "LicenseTax":"2366"
     },
     {
       "Id": "15",
@@ -178,7 +191,8 @@
       "PhoneNumber": "555-1234",
       "City": "Philadelphia",
       "Status": true,
-      "Email": "brian.cruz@example.com"
+      "Email": "brian.cruz@example.com",
+      "LicenseTax":"2366"
     },
     {
       "Id": "16",
@@ -190,7 +204,8 @@
       "PhoneNumber": "555-5678",
       "City": "Charlotte",
       "Status": true,
-      "Email": "rachel.morales@example.com"
+      "Email": "rachel.morales@example.com",
+      "LicenseTax":"2366"
     },
     {
       "Id": "17",
@@ -202,7 +217,8 @@
       "PhoneNumber": "555-9012",
       "City": "Portland",
       "Status": true,
-      "Email": "eric.ortiz@example.com"
+      "Email": "eric.ortiz@example.com",
+      "LicenseTax":"2366"
     },
     {
       "Id": "18",
@@ -214,7 +230,8 @@
       "PhoneNumber": "555-3456",
       "City": "Seattle",
       "Status": true,
-      "Email": "samantha.gutierrez@example.com"
+      "Email": "samantha.gutierrez@example.com",
+      "LicenseTax":"2366"
     },
     {
       "Id": "19",
@@ -226,7 +243,8 @@
       "PhoneNumber": "555-7890",
       "City": "San Diego",
       "Status": true,
-      "Email": "jason.santos@example.com"
+      "Email": "jason.santos@example.com",
+      "LicenseTax":"2366"
     },
     {
       "Id": "20",
@@ -238,7 +256,8 @@
       "PhoneNumber": "555-2345",
       "City": "Miami",
       "Status": true,
-      "Email": "melissa.chavez@example.com"
+      "Email": "melissa.chavez@example.com",
+      "LicenseTax":"2366"
     }
   ]
-}
+

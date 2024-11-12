@@ -12,9 +12,9 @@ namespace DriversServicesAPI.Controllers
     {
 
         readonly CarService _carService;
-        public CarsController()
+        public CarsController(CarService carService)
         {
-            _carService = new CarService();
+            _carService = carService;
         }
         // GET: api/<CarsController>
         [HttpGet]

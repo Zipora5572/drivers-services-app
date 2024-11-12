@@ -12,9 +12,9 @@ namespace UsersServicesAPI.Controllers
     public class UsersController : ControllerBase
     {
         readonly UserService _UserService;
-        public UsersController()
+        public UsersController(UserService userService)
         {
-            _UserService = new UserService();
+            _UserService = userService;
         }
 
         [HttpGet]

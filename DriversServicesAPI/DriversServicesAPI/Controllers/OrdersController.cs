@@ -14,9 +14,9 @@ namespace OrdersServicesAPI.Controllers
     {
 
         readonly OrderService _OrderService;
-        public OrdersController()
+        public OrdersController(OrderService orderService)
         {
-            _OrderService = new OrderService();
+            _OrderService = orderService;
         }
 
         [HttpGet]

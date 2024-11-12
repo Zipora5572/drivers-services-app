@@ -5,63 +5,73 @@ namespace DriversServicesAPI.Services
 {
     public class UserService
     {
+        readonly IDataContext _dataContext;
 
-        DataUsers _allUsers = DataManager.Data.Users;
-
+        public UserService(IDataContext dataContext)
+        {
+            _dataContext = dataContext;
+        }
         public List<UserDTO> GetAllUsers()
         {
-            if (_allUsers == null)
+            var data = _dataContext.LoadData<UserDTO>();
+
+
+            if (data == null)
             {
                 return new List<UserDTO>();
             }
 
-            return _allUsers.dataUsers;
+            return data;
         }
 
         public UserDTO GetById(string id)
         {
-            if (_allUsers?.dataUsers == null)
+            var data = _dataContext.LoadData<UserDTO>();
+
+            if (data == null)
             {
                 return null;
             }
-            return _allUsers.dataUsers.Find(c => c.Id == id);
+            return data.Find(c => c.Id == id);
         }
 
         public bool AddUser(UserDTO car)
         {
-            if (_allUsers == null)
+            var data = _dataContext.LoadData<UserDTO>();
+
+            if (data == null)
             { return false; }
-            _allUsers.dataUsers.Add(car);
-            string path = Path.Combine(AppContext.BaseDirectory, "Data", "dataUsers.json");
-            var data = JsonSerializer.Serialize(_allUsers);
-            File.WriteAllText(path, data);
+            data.Add(car);
+            _dataContext.SaveData(data);
             return true;
         }
 
         public bool DeleteUser(string id)
         {
-            if (_allUsers?.dataUsers == null)
+            var data = _dataContext.LoadData<UserDTO>();
+
+            if (data == null)
             {
                 return false;
             }
-            UserDTO carToRemove = _allUsers.dataUsers.Find(c => c.Id == id);
+            UserDTO carToRemove = data.Find(c => c.Id == id);
             if (carToRemove != null)
             {
-                _allUsers.dataUsers.Remove(carToRemove);
-
-                string path = Path.Combine(AppContext.BaseDirectory, "Data", "DataUsers.json");
-                var data = JsonSerializer.Serialize(_allUsers);
-                File.WriteAllText(path, data);
+                data.Remove(carToRemove);
+                _dataContext.SaveData(data);
                 return true;
             }
             return false;
         }
         public bool UpdateUser(UserDTO car)
         {
-            if (_allUsers == null)
+
+            var data = _dataContext.LoadData<UserDTO>();
+
+            if (data == null)
             { return false; }
 
-            UserDTO carToUpdate = _allUsers.dataUsers.Find(c => c.Id == car.Id);
+            UserDTO carToUpdate =data.Find(c => c.Id == car.Id);
             if (carToUpdate != null)
             {
                 carToUpdate.FirstName = car.FirstName;
@@ -71,9 +81,7 @@ namespace DriversServicesAPI.Services
                 carToUpdate.DateOfBirth = car.DateOfBirth;
                 carToUpdate.PhoneNumber = car.PhoneNumber;
                 carToUpdate.City = car.City;
-                string path = Path.Combine(AppContext.BaseDirectory, "Data", "dataUsers.json");
-                var data = JsonSerializer.Serialize(_allUsers);
-                File.WriteAllText(path, data);
+                _dataContext.SaveData(data);
                 return true;
             }
 

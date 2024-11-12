@@ -1,3 +1,6 @@
+using DriversServicesAPI.DTO;
+using DriversServicesAPI.Services;
+
 namespace DriversServicesAPI
 {
     public class Program
@@ -7,6 +10,13 @@ namespace DriversServicesAPI
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+            builder.Services.AddScoped<OrderService>();
+            builder.Services.AddScoped<CarService>();
+            builder.Services.AddScoped<UserService>();
+            builder.Services.AddScoped<TravelService>();
+            builder.Services.AddScoped<DriverService>();
+            builder.Services.AddScoped<IDataContext, DataContext>();
+
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

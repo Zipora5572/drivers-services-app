@@ -1,5 +1,6 @@
 using DriversServicesAPI.Controllers;
 using DriversServicesAPI.DTO;
+using DriversServicesAPI.Services;
 using Microsoft.AspNetCore.Mvc;
 using UsersServicesAPI.Controllers;
 
@@ -9,10 +10,11 @@ namespace UnitTest
     {
 
         private readonly CarsController _carsController;
+        //var controler = new CoinsController(new CoinsSerice(new TestContext()));
 
         public CarsControllerTests()
         {
-            _carsController = new CarsController();
+            _carsController = new CarsController(new CarService(new FakeContext()));
         }
 
 

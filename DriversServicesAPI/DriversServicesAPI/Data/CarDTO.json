@@ -1,5 +1,4 @@
-{
-  "dataCars": [
+ [
     {
       "id": 1,
       "Model": "Camry",
@@ -221,4 +220,3 @@
       "DriverId":" 20"
     }
   ]
-}

@@ -1,68 +1,78 @@
 ﻿using DriversServicesAPI.DTO;
-
+using System.Runtime.InteropServices;
 using System.Text.Json;
 
 namespace DriversServicesAPI.Services
 {
     public class CarService
     {
-        private static int Id=0;
+        private static int Id = 0;
 
-        DataCars _allCars = DataManager.Data.Cars;
+        readonly IDataContext _dataContext;
+
+        public CarService(IDataContext dataContext)
+        {
+            _dataContext = dataContext;
+        }
+
         public List<CarDTO> GetAllCars()
         {
-            if (_allCars == null)
-            {
-                return new List<CarDTO>();
-            }
-
-            return _allCars.dataCars;
+            var data = _dataContext.LoadData<CarDTO>();
+            if (data == null)
+                return null;
+            return data;
         }
 
         public CarDTO GetById(int id)
         {
-            if (_allCars?.dataCars == null)
+
+            var data = _dataContext.LoadData<CarDTO>();
+
+            if (data == null)
             {
                 return null;
             }
-            return _allCars.dataCars.Find(c => c.Id == id);
+            return data.Find(c => c.Id == id);
         }
 
         public bool AddCar(CarDTO car)
         {
-            if (_allCars == null || car.NumPlaces<0)
+            var data = _dataContext.LoadData<CarDTO>();
+            if (data == null || car.NumPlaces < 0)
             { return false; }
             car.Id = Id++;
-            _allCars.dataCars.Add(car);
-            string path = Path.Combine(AppContext.BaseDirectory, "Data", "DataCars.json");
-            var data = JsonSerializer.Serialize(_allCars);
-            File.WriteAllText(path, data);
+            data.Add(car);
+            _dataContext.SaveData(data);
             return true;
         }
 
         public bool DeleteCar(int id)
         {
-            if (_allCars?.dataCars == null)
+
+            var data = _dataContext.LoadData<CarDTO>();
+
+            if (data == null)
             {
                 return false;
             }
-            CarDTO carToRemove = _allCars.dataCars.Find(c => c.Id == id);
+            CarDTO carToRemove = data.Find(c => c.Id == id);
             if (carToRemove != null)
             {
-                _allCars.dataCars.Remove(carToRemove);
-                string path = Path.Combine(AppContext.BaseDirectory, "Data", "DataCars.json");
-                var data = JsonSerializer.Serialize(_allCars);
-                File.WriteAllText(path, data);
+                data.Remove(carToRemove);
+                _dataContext.SaveData(data);
                 return true;
             }
             return false;
         }
         public bool UpdateCar(CarDTO car)
         {
-            if (_allCars == null)
+
+            var data = _dataContext.LoadData<CarDTO>();
+
+            if (data == null)
             { return false; }
 
-            CarDTO carToUpdate = _allCars.dataCars.Find(c => c.Id == car.Id);
+            CarDTO carToUpdate =data.Find(c => c.Id == car.Id);
             if (carToUpdate != null)
             {
                 carToUpdate.NumPlaces = car.NumPlaces;
@@ -71,9 +81,7 @@ namespace DriversServicesAPI.Services
                 carToUpdate.PlateNumber = car.PlateNumber;
                 carToUpdate.Manufacturer = car.Manufacturer;
                 carToUpdate.DriverId = car.DriverId;
-                string path = Path.Combine(AppContext.BaseDirectory, "Data", "DataCars.json");
-                var data = JsonSerializer.Serialize(_allCars);
-                File.WriteAllText(path, data);
+                _dataContext.SaveData(data);
                 return true;
             }
 

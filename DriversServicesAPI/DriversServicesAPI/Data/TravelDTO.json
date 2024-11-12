@@ -1,5 +1,4 @@
-{
-  "dataTravels": [
+ [
     {
       "Id": 1,
       "Source": "123 Main St",
@@ -161,4 +160,4 @@
       "Travel": "PASSENGERS"
     }
   ]
-}
+

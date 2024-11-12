@@ -15,9 +15,9 @@ namespace DriversServicesAPI.Controllers
 
 
         readonly DriverService _driverService;
-        public DriversController()
+        public DriversController(DriverService driverService)
         {
-            _driverService = new DriverService();
+            _driverService = driverService;
         }
 
         [HttpGet]

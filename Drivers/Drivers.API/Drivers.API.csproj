@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Drivers.Core\Drivers.Core.csproj" />
+    <ProjectReference Include="..\Drivers.Data\Drivers.Data.csproj" />
+    <ProjectReference Include="..\Drivers.Service\Drivers.Service.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -7,12 +7,7 @@ using System.Threading.Tasks;
 
 namespace Drivers.Core.Repositories
 {
-    public interface IUserRepository
+    public interface IUserRepository:IRepository<User>
     {
-        List<User> GetAllUsers();
-        User GetById(int id);
-        bool AddUser(User user);
-        bool DeleteUser(int id);
-        bool UpdateUser(int id, User user);
     }
 }

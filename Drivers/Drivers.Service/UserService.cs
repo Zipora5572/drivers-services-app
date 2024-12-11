@@ -11,38 +11,41 @@ namespace Drivers.Service
 {
     public class UserService:IUserService
     {
-        private readonly IUserRepository _UserRepository;
+        private readonly IRepositoryManager _repositoryManager;
 
-        public UserService(IUserRepository UserRepository)
+        public UserService(IRepositoryManager repositoryManager)
         {
-            _UserRepository = UserRepository;
+            _repositoryManager = repositoryManager;
         }
 
         public List<User> GetAllUsers()
         {
-            return _UserRepository.GetAllUsers();
+            return _repositoryManager.Users.GetAll().ToList();
         }
 
         public User GetById(int id)
         {
-            return _UserRepository.GetById(id);
+            return _repositoryManager.Users.GetById(id);
 
         }
 
-        public bool AddUser(User user)
+        public User AddUser(User user)
         {
-
-            return _UserRepository.AddUser(user);
+            var addedUser= _repositoryManager.Users.Add(user);
+            _repositoryManager.Save();
+            return addedUser;
         }
 
-        public bool DeleteUser(int id)
+        public void DeleteUser(User user)
         {
-            return _UserRepository.DeleteUser(id);
+             _repositoryManager.Users.Delete(user);
+            _repositoryManager.Save();
         }
-        public bool UpdateUser(int id, User user)
+        public User UpdateUser(int id,User user)
         {
-
-            return _UserRepository.UpdateUser(id, user);
+            var updatedUser= _repositoryManager.Users.Update(id,user);
+            _repositoryManager.Save();
+            return updatedUser;
         }
 
 

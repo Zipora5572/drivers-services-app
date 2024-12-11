@@ -2,6 +2,8 @@
 using Drivers.Core.Entities;
 using Drivers.Core.Services;
 using Microsoft.AspNetCore.Cors.Infrastructure;
+using Drivers.Service;
+
 namespace Drivers.API.Controllers
 {
     [Route("api/[controller]")]
@@ -13,7 +15,7 @@ namespace Drivers.API.Controllers
         {
             _travelService = travelService;
         }
-        // GET: api/<CarsController>
+        // GET: api/<travelsController>
         [HttpGet]
         public ActionResult<IEnumerable<Travel>> Get()
         {
@@ -43,8 +45,11 @@ namespace Drivers.API.Controllers
         [HttpPost]
         public ActionResult Post([FromBody] Travel travel)
         {
-            if (_travelService.AddTravel(travel))
-                return NoContent();
+            var createdTravel = _travelService.AddTravel(travel);
+            if (createdTravel != null)
+            {
+                return CreatedAtAction(nameof(Get), new { id = createdTravel.Id }, createdTravel);
+            }
             return BadRequest();
         }
 
@@ -52,17 +57,23 @@ namespace Drivers.API.Controllers
         [HttpPut("{id}")]
         public ActionResult Put(int id, [FromBody] Travel travel)
         {
-            if (_travelService.UpdateTravel(id, travel))
-                return NoContent();
-            return NotFound();
+
+           
+            Travel updatedtravel = _travelService.UpdateTravel(id, travel);
+            return Ok(updatedtravel);
         }
         // DELETE api/<TravelController>/5
         [HttpDelete("{id}")]
         public ActionResult Delete(int id)
         {
-            if (_travelService.DeleteTravel(id))
-                return NoContent();
-            return NotFound();
+
+            Travel travel = _travelService.GetById(id);
+            if (travel == null)
+            {
+                return NotFound();
+            }
+            _travelService.DeleteTravel(travel);
+            return NoContent();
         }
     }
 }

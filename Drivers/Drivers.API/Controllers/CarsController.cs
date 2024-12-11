@@ -1,5 +1,6 @@
 ﻿using Drivers.Core.Entities;
 using Drivers.Core.Services;
+using Drivers.Service;
 using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,7 +8,7 @@ namespace Drivers.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CarsController:ControllerBase
+    public class CarsController : ControllerBase
     {
 
         readonly ICarService _carService;
@@ -43,9 +44,11 @@ namespace Drivers.API.Controllers
         [HttpPost]
         public ActionResult Post([FromBody] Car car)
         {
-
-            if (_carService.AddCar(car))
-                return Ok();
+            var createdCar = _carService.AddCar(car);
+            if (createdCar != null)
+            {
+                return CreatedAtAction(nameof(Get), new { id = createdCar.Id }, createdCar);
+            }
             return BadRequest();
         }
 
@@ -53,23 +56,25 @@ namespace Drivers.API.Controllers
         [HttpPut("{id}")]
         public ActionResult Put(int id, [FromBody] Car car)
         {
-
             //validation
             if (car.NumPlaces <= 0)
                 return BadRequest("Invalid num of places");
 
-            if (_carService.UpdateCar(id, car))
-                return Ok();
-            return NotFound();
+            Car updatedCar = _carService.UpdateCar(id, car);
+            return Ok(updatedCar);
         }
 
         // DELETE api/<CarsController>/5
         [HttpDelete("{id}")]
         public ActionResult Delete(int id)
         {
-            if (_carService.DeleteCar(id))
-                return Ok();
-            return NotFound();
+            Car car = _carService.GetById(id);
+            if (car == null)
+            {
+                return NotFound();
+            }
+            _carService.DeleteCar(car);
+            return NoContent();
         }
     }
 }

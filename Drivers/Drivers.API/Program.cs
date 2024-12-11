@@ -3,6 +3,8 @@ using Drivers.Core.Services;
 using Drivers.Data;
 using Drivers.Data.Repositories;
 using Drivers.Service;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -12,23 +14,24 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+
+builder.Services.AddScoped<IRepositoryManager, RepositoryManager>();
 builder.Services.AddScoped<ICarRepository, CarRepository>();
-builder.Services.AddScoped<ICarService, CarService>();
-
 builder.Services.AddScoped<IDriverRepository, DriverRepository>();
-builder.Services.AddScoped<IDriverService, DriverService>();
-
 builder.Services.AddScoped<IUserRepository, UserRepository>();
-builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<ITravelRepository, TravelRepository>();
+builder.Services.AddScoped<IOrderRepository,OrderRepository>();
 
-builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+builder.Services.AddScoped<ICarService, CarService>();
+builder.Services.AddScoped<IDriverService, DriverService>();
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<ITravelService, TravelService>();
 builder.Services.AddScoped<IOrderService, OrderService>();
 
-builder.Services.AddScoped<ITravelRepository, TravelRepository>();
-builder.Services.AddScoped<ITravelService, TravelService>();
+//builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 
-
-builder.Services.AddSingleton<IDataContext, DataContext>();
+builder.Services.AddDbContext<IDataContext, DataContext>(
+    options => options.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Database=DriversServicesDB"));
 
 builder.Services.AddCors(opt => opt.AddPolicy("MyPolicy", policy =>
 {

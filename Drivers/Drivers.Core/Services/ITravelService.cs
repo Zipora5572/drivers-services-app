@@ -11,8 +11,8 @@ namespace Drivers.Core.Services
     {
         List<Travel> GetAllTravels();
         Travel GetById(int id);
-        bool AddTravel(Travel travel);
-        bool DeleteTravel(int id);
-        bool UpdateTravel(int id, Travel travel);
+        Travel AddTravel(Travel travel);
+        void DeleteTravel(Travel travel);
+        Travel UpdateTravel(int id,Travel travel);
     }
 }

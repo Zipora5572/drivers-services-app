@@ -12,8 +12,8 @@ namespace Drivers.Core.Services
 
         List<Car> GetAllCars();
         Car GetById(int id);
-        bool AddCar(Car car);
-        bool DeleteCar(int id);
-        bool UpdateCar(int id, Car car);
+        Car AddCar(Car car);
+        void DeleteCar(Car car);
+        Car UpdateCar(int id,Car car);
     }
 }

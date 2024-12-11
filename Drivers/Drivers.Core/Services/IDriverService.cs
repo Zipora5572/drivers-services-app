@@ -11,8 +11,8 @@ namespace Drivers.Core.Services
     {
         List<Driver> GetAllDrivers();
         Driver GetById(int id);
-        bool AddDriver(Driver driver);
-        bool DeleteDriver(int id);
-        bool UpdateDriver(int id, Driver driver);
+        Driver AddDriver(Driver driver);
+        void DeleteDriver(Driver driver);
+        Driver UpdateDriver(int id, Driver driver);
     }
 }

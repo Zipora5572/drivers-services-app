@@ -7,14 +7,7 @@ using System.Threading.Tasks;
 
 namespace Drivers.Core.Repositories
 {
-    public interface ICarRepository
+    public interface ICarRepository:IRepository<Car>
     {
-
-        List<Car> GetAllCars();
-        Car GetById(int id);
-        bool AddCar(Car car);
-        bool DeleteCar(int id);
-        bool UpdateCar(int id, Car car);
-           
     }
 }

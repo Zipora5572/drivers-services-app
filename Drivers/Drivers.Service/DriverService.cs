@@ -4,6 +4,7 @@ using Drivers.Core.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.ConstrainedExecution;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,38 +12,42 @@ namespace Drivers.Service
 {
     public class DriverService:IDriverService
     {
-        private readonly IDriverRepository _DriverRepository;
+        private readonly IRepositoryManager _repositoryManager;
 
-        public DriverService(IDriverRepository DriverRepository)
+        public DriverService(IRepositoryManager repositoryManager)
         {
-            _DriverRepository = DriverRepository;
+            _repositoryManager = repositoryManager;
         }
 
         public List<Driver> GetAllDrivers()
         {
-            return _DriverRepository.GetAllDrivers();
+            return _repositoryManager.Drivers.GetAll().ToList();
         }
 
         public Driver GetById(int id)
         {
-            return _DriverRepository.GetById(id);
+            return _repositoryManager.Drivers.GetById(id);
 
         }
 
-        public bool AddDriver(Driver driver)
+        public Driver AddDriver(Driver driver)
         {
-
-            return _DriverRepository.AddDriver(driver);
+            var addedDriver= _repositoryManager.Drivers.Add(driver); ;
+            _repositoryManager.Save();
+            return addedDriver;
         }
 
-        public bool DeleteDriver(int id)
+        public void DeleteDriver(Driver driver)
         {
-            return _DriverRepository.DeleteDriver(id);
+             _repositoryManager.Drivers.Delete(driver);
+            _repositoryManager.Save();
         }
-        public bool UpdateDriver(int id, Driver driver)
+        public Driver UpdateDriver(int id,Driver driver)
         {
-
-            return _DriverRepository.UpdateDriver(id, driver);
+            var updatedDriver = _repositoryManager.Drivers.Update( id,driver);
+            _repositoryManager.Save();
+            return updatedDriver;
+            
         }
 
 

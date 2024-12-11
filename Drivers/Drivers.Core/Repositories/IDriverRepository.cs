@@ -7,12 +7,7 @@ using System.Threading.Tasks;
 
 namespace Drivers.Core.Repositories
 {
-    public interface IDriverRepository
+    public interface IDriverRepository:IRepository<Driver>
     {
-        List<Driver> GetAllDrivers();
-        Driver GetById(int id);
-        bool AddDriver(Driver driver);
-        bool DeleteDriver(int id);
-        bool UpdateDriver(int id, Driver driver);
     }
 }

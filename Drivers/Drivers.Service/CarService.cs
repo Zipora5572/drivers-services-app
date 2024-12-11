@@ -9,43 +9,43 @@ using Drivers.Core.Services;
 
 namespace Drivers.Service
 {
-    public class CarService:ICarService
+    public class CarService : ICarService
     {
 
-        private readonly ICarRepository _carRepository;
+        private readonly IRepositoryManager _repositoryManager;
 
-        public CarService(ICarRepository carRepository)
+        public CarService(IRepositoryManager repositoryManager)
         {
-            _carRepository = carRepository;
+            _repositoryManager = repositoryManager;
         }
 
         public List<Car> GetAllCars()
         {
-            return _carRepository.GetAllCars();
+            return _repositoryManager.Cars.GetAll().ToList();
         }
 
         public Car GetById(int id)
         {
-            return _carRepository.GetById(id);
+            return _repositoryManager.Cars.GetById(id);
 
         }
-
-        public bool AddCar(Car car)
+        public Car AddCar(Car car)
         {
-
-            return _carRepository.AddCar(car);
+            var addedCar = _repositoryManager.Cars.Add(car);
+            _repositoryManager.Save();
+            return addedCar;
         }
-
-        public bool DeleteCar(int id)
+        public void DeleteCar(Car car)
         {
-            return _carRepository.DeleteCar(id);
+            _repositoryManager.Cars.Delete(car);
+            _repositoryManager.Save();
+
         }
-        public bool UpdateCar(int id, Car car)
+        public Car UpdateCar(int id,Car car)
         {
-
-            return _carRepository.UpdateCar(id, car);
+            var updatedCar= _repositoryManager.Cars.Update(id,car);
+            _repositoryManager.Save();
+            return updatedCar;
         }
-
-
     }
 }

@@ -1,3 +1,0 @@
-Id,FirstName,LastName,Address,Gender,DateOfBirth,PhoneNumber,City,Status,Email
-1,John,Doe,123 Main St,Male,2022-01-15T10:30:00,555-1234,New York,true,john.doe@example.com
-2,Jane,Smith,456 Elm St,Female,2022-01-15T10:30:00,555-5678,Los Angeles,true,jane.smith@example.com

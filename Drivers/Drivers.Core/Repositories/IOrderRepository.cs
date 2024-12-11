@@ -7,12 +7,7 @@ using System.Threading.Tasks;
 
 namespace Drivers.Core.Repositories
 {
-    public interface IOrderRepository
+    public interface IOrderRepository:IRepository<Order>
     {
-        List<Order> GetAllOrders();
-        Order GetById(int id);
-        bool AddOrder(Order order);
-        bool DeleteOrder(int id);
-        bool UpdateOrder(int id, Order order);
     }
 }

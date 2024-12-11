@@ -11,38 +11,41 @@ namespace Drivers.Service
 {
     public class OrderService:IOrderService
     {
-        private readonly IOrderRepository _OrderRepository;
+        private readonly IRepositoryManager _repositoryManager;
 
-        public OrderService(IOrderRepository OrderRepository)
+        public OrderService(IRepositoryManager repositoryManager)
         {
-            _OrderRepository = OrderRepository;
+            _repositoryManager = repositoryManager;
         }
 
         public List<Order> GetAllOrders()
         {
-            return _OrderRepository.GetAllOrders();
+            return _repositoryManager.Orders.GetAll().ToList();
         }
 
         public Order GetById(int id)
         {
-            return _OrderRepository.GetById(id);
+            return _repositoryManager.Orders.GetById(id);
 
         }
 
-        public bool AddOrder(Order order)
+        public Order AddOrder(Order order)
         {
-
-            return _OrderRepository.AddOrder(order);
+           var addedOrder= _repositoryManager.Orders.Add(order);
+            _repositoryManager.Save();
+            return addedOrder;
         }
 
-        public bool DeleteOrder(int id)
+        public void DeleteOrder(Order order)
         {
-            return _OrderRepository.DeleteOrder(id);
+             _repositoryManager.Orders.Delete(order);
+            _repositoryManager.Save();
         }
-        public bool UpdateOrder(int id, Order order)
+        public Order UpdateOrder(int id,Order order)
         {
-
-            return _OrderRepository.UpdateOrder(id, order);
+            var updatedOrder= _repositoryManager.Orders.Update(id,order);
+            _repositoryManager.Save();
+            return updatedOrder;
         }
 
 

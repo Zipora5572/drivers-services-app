@@ -11,8 +11,8 @@ namespace Drivers.Core.Services
     {
         List<Order> GetAllOrders();
         Order GetById(int id);
-        bool AddOrder(Order order);
-        bool DeleteOrder(int id);
-        bool UpdateOrder(int id, Order order);
+        Order AddOrder(Order order);
+        void DeleteOrder(Order order);
+        Order UpdateOrder(int id, Order order);
     }
 }

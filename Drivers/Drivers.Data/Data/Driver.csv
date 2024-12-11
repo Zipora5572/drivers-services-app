@@ -1,3 +1,0 @@
-Id,FirstName,LastName,Address,Gender,DateOfBirth,PhoneNumber,City,Status,Email,LicenseTax
-1,John,Doe,123 Main St,Male,1990-05-15,555-1234,New York,true,john.doe@example.com,ABC123
-2,Jane,Smith,456 Elm St,Female,1985-12-10,555-5678,Los Angeles,true,jane.smith@example.com,DEF456

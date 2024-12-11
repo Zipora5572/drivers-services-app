@@ -2,6 +2,7 @@
 using Drivers.Core.Entities;
 using Drivers.Core.Services;
 using Microsoft.AspNetCore.Cors.Infrastructure;
+using Drivers.Service;
 
 namespace Drivers.API.Controllers
 {
@@ -14,7 +15,7 @@ namespace Drivers.API.Controllers
         {
             _driverService = driverService;
         }
-        // GET: api/<CarsController>
+        // GET: api/<driversController>
         [HttpGet]
         public ActionResult<IEnumerable<Driver>> Get()
         {
@@ -44,8 +45,11 @@ namespace Drivers.API.Controllers
         [HttpPost]
         public ActionResult Post([FromBody] Driver driver)
         {
-            if (_driverService.AddDriver(driver))
-                return NoContent();
+            var createdDriver = _driverService.AddDriver(driver);
+            if (createdDriver != null)
+            {
+                return CreatedAtAction(nameof(Get), new { id = createdDriver.Id }, createdDriver);
+            }
             return BadRequest();
         }
 
@@ -53,18 +57,25 @@ namespace Drivers.API.Controllers
         [HttpPut("{id}")]
         public ActionResult Put(int id, [FromBody] Driver driver)
         {
-            if (_driverService.UpdateDriver(id, driver))
-                return NoContent();
-            return NotFound();
+
+
+            
+            Driver updatedDriver = _driverService.UpdateDriver(id, driver);
+            return Ok(updatedDriver);
+           
         }
 
         // DELETE api/<DriverController>/5
         [HttpDelete("{id}")]
         public ActionResult Delete(int id)
         {
-            if (_driverService.DeleteDriver(id))
-                return NoContent();
-            return NotFound();
+            Driver driver = _driverService.GetById(id);
+            if (driver == null)
+            {
+                return NotFound();
+            }
+            _driverService.DeleteDriver(driver);
+            return NoContent();
         }
     }
 }

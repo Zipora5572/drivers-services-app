@@ -2,6 +2,8 @@
 using Drivers.Core.Entities;
 using Drivers.Core.Services;
 using Microsoft.AspNetCore.Cors.Infrastructure;
+using Drivers.Service;
+
 namespace Drivers.API.Controllers
 {
     [Route("api/[controller]")]
@@ -13,7 +15,7 @@ namespace Drivers.API.Controllers
         {
             _userService = userService;
         }
-        // GET: api/<CarsController>
+        // GET: api/<usersController>
         [HttpGet]
         public ActionResult<IEnumerable<User>> Get()
         {
@@ -43,8 +45,11 @@ namespace Drivers.API.Controllers
         [HttpPost]
         public ActionResult Post([FromBody] User user)
         {
-            if (_userService.AddUser(user))
-                return NoContent();
+            var createdUser = _userService.AddUser(user);
+            if (createdUser != null)
+            {
+                return CreatedAtAction(nameof(Get), new { id = createdUser.Id }, createdUser);
+            }
             return BadRequest();
         }
 
@@ -52,17 +57,23 @@ namespace Drivers.API.Controllers
         [HttpPut("{id}")]
         public ActionResult Put(int id, [FromBody] User user)
         {
-            if (_userService.UpdateUser(id, user))
-                return NoContent();
-            return NotFound();
+
+            
+            User updatedUser = _userService.UpdateUser(id, user);
+            return Ok(updatedUser);
         }
         // DELETE api/<UserController>/5
         [HttpDelete("{id}")]
         public ActionResult Delete(int id)
         {
-            if (_userService.DeleteUser(id))
-                return NoContent();
-            return NotFound();
+
+            User user = _userService.GetById(id);
+            if (user == null)
+            {
+                return NotFound();
+            }
+            _userService.DeleteUser(user);
+            return NoContent();
         }
     }
 }

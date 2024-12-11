@@ -2,6 +2,8 @@
 using Drivers.Core.Entities;
 using Drivers.Core.Services;
 using Microsoft.AspNetCore.Cors.Infrastructure;
+using Drivers.Service;
+
 namespace Drivers.API.Controllers
 {
     [Route("api/[controller]")]
@@ -9,12 +11,12 @@ namespace Drivers.API.Controllers
     public class OrdersController : ControllerBase
     {
         readonly IOrderService _orderService;
-        public OrdersController(IOrderService carService)
+        public OrdersController(IOrderService orderService)
         {
-            _orderService = carService;
+            _orderService = orderService;
         }
 
-        // GET: api/<CarsController>
+        // GET: api/<ordersController>
         [HttpGet]
         public ActionResult<IEnumerable<Order>> Get()
         {
@@ -43,8 +45,11 @@ namespace Drivers.API.Controllers
         [HttpPost]
         public ActionResult Post([FromBody] Order order)
         {
-            if (_orderService.AddOrder(order))
-                return NoContent();
+            var createdOrder = _orderService.AddOrder(order);
+            if (createdOrder != null)
+            {
+                return CreatedAtAction(nameof(Get), new { id = createdOrder.Id }, createdOrder);
+            }
             return BadRequest();
         }
 
@@ -52,18 +57,23 @@ namespace Drivers.API.Controllers
         [HttpPut("{id}")]
         public ActionResult Put(int id, [FromBody] Order order)
         {
-            if (_orderService.UpdateOrder(id, order))
-                return NoContent();
-            return NotFound();
+
+           
+            Order updatedorder = _orderService.UpdateOrder(id, order);
+            return Ok(updatedorder);
         }
         // DELETE api/<OrderController>/5
         [HttpDelete("{id}")]
 
         public ActionResult Delete(int id)
         {
-            if (_orderService.DeleteOrder(id))
-                return NoContent();
-            return NotFound();
+            Order order = _orderService.GetById(id);
+            if (order == null)
+            {
+                return NotFound();
+            }
+            _orderService.DeleteOrder(order);
+            return NoContent();
         }
 
     }

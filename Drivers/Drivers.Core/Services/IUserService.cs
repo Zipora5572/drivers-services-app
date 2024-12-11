@@ -12,8 +12,8 @@ namespace Drivers.Core.Services
 
         List<User> GetAllUsers();
         User GetById(int id);
-        bool AddUser(User user);
-        bool DeleteUser(int id);
-        bool UpdateUser(int id, User user);
+        User AddUser(User user);
+        void DeleteUser(User user);
+        User UpdateUser(int id,User user);
     }
 }

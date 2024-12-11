@@ -1,4 +1,0 @@
-Id,Model,YearOfProduction,NumPlaces,PlateNumber,Manufacturer,Condition,Status,DriverId
-1,Toyota Corolla,2018,5,ABC123,Toyota,AVAILABLE,True,1
-2,Honda Civic,2019,4,XYZ456,Honda,RENTED,False,2
-3,Ford Mustang,2020,2,DEF789,Ford,BROKEN_DOWN,True,3

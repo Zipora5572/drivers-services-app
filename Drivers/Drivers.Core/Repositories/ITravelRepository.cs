@@ -7,12 +7,7 @@ using System.Threading.Tasks;
 
 namespace Drivers.Core.Repositories
 {
-    public interface ITravelRepository
+    public interface ITravelRepository:IRepository<Travel>
     {
-        List<Travel> GetAllTravels();
-        Travel GetById(int id);
-        bool AddTravel(Travel travel);
-        bool DeleteTravel(int id);
-        bool UpdateTravel(int id, Travel travel);
     }
 }

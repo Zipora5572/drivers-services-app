@@ -11,38 +11,41 @@ namespace Drivers.Service
 {
     public class TravelService:ITravelService
     {
-        private readonly ITravelRepository _TravelRepository;
+        private readonly IRepositoryManager _repositoryManager;
 
-        public TravelService(ITravelRepository TravelRepository)
+        public TravelService(IRepositoryManager repositoryManager)
         {
-            _TravelRepository = TravelRepository;
+            _repositoryManager = repositoryManager;
         }
 
         public List<Travel> GetAllTravels()
         {
-            return _TravelRepository.GetAllTravels();
+            return _repositoryManager.Travels.GetAll().ToList();
         }
 
         public Travel GetById(int id)
         {
-            return _TravelRepository.GetById(id);
+            return _repositoryManager.Travels.GetById(id);
 
         }
 
-        public bool AddTravel(Travel travel)
+        public Travel AddTravel(Travel travel)
         {
-
-            return _TravelRepository.AddTravel(travel);
+           var addedTravel= _repositoryManager.Travels.Add(travel);
+            _repositoryManager.Save();
+            return addedTravel;
         }
 
-        public bool DeleteTravel(int id)
+        public void DeleteTravel(Travel travel)
         {
-            return _TravelRepository.DeleteTravel(id);
+             _repositoryManager.Travels.Delete(travel);
+            _repositoryManager.Save();
         }
-        public bool UpdateTravel(int id, Travel travel)
+        public Travel UpdateTravel(int id,Travel travel)
         {
-
-            return _TravelRepository.UpdateTravel(id, travel);
+            var updatedTravel= _repositoryManager.Travels.Update(id,travel);
+            _repositoryManager.Save();
+            return updatedTravel;
         }
 
 
